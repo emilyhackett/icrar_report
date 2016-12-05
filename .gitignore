@@ -1,0 +1,12 @@
+*.out
+*.log
+*.dvi
+*.bbl
+*.aux
+*.blg
+*.pdf
+mnras*
+README
+example*
+legacy/
+readme.txt
