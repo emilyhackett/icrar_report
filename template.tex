@@ -1,0 +1,48 @@
+%%
+%% ICRAR Student Day 2016 template
+%%
+%% jt.malarecki@gmail.com
+%%
+
+\documentclass[class=article, crop=false]{standalone}
+\usepackage{graphicx}  % For figures
+\usepackage{blindtext} % Placeholder text
+
+% Commands
+\newcommand{\studentname}[1]{\noindent\textbf{#1}\\}
+\newcommand{\studentprogram}[1]{\noindent #1\\}
+\newcommand{\studentaffiliation}[1]{\noindent #1\\\vspace{1em}}
+\newcommand{\studenttitle}[1]{\noindent\textbf{Title: }#1\\\vspace{1em}}
+
+\begin{document}
+
+%% ============================================================================
+
+%% ----------------------------------------------------------------------------
+%% Name, program, affiliation
+%% ----------------------------------------------------------------------------
+
+\studentname{Emily Hackett}
+\studentprogram{ICRAR/Pawset Summer Studentship} % or Masters Student or ??? Student
+\studentaffiliation{UWA} % or Curtin or Visting UWA/Curtin from ??? University
+
+%% ----------------------------------------------------------------------------
+%% Title
+%% ----------------------------------------------------------------------------
+
+\studenttitle{Studying the correlation between structural properties of stellar halos and their alignment with the cosmic web}
+
+%% ----------------------------------------------------------------------------
+%% Abstract
+%% ----------------------------------------------------------------------------
+
+\input{abstract.tex}
+
+%\begin{figure}[htbp]
+%	\includegraphics[width=8cm]{...}
+%	\caption{...}
+%\end{figure}
+
+%% ============================================================================
+
+\end{document}
