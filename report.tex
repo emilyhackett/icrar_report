@@ -1,0 +1,117 @@
+\documentclass[journal]{IEEEtran}
+
+\usepackage{newtxtext,newtxmath}
+\usepackage{mathrsfs}
+
+\begin{document}
+
+\title{ICRAR-Pawsey Summer Studentship Report}
+
+\author{Emily Hackett% <-this % stops a space
+\thanks{Dr Chris Power and Dr Charlotte Welker - ICRAR}
+\thanks{Chris Bording - Pawsey}}
+
+% The paper headers
+\markboth{Alignment of stellar halos with cosmic filaments}%
+{Shell \MakeLowercase{\textit{et al.}}: ICRAR-Pawsey Summer Studentships}
+% The only time the second header will appear is for the odd numbered pages
+% after the title page when using the twoside option.
+
+% make the title area
+\maketitle
+
+%%%%% ABSTRACT %%%%%
+% As a general rule, do not put math, special symbols or citations
+% in the abstract or keywords.
+\begin{abstract}
+The properties of dark matter haloes have been shown to correlate with their local environment (such as filaments and voids), as has those of baryonic galaxies, although to a lesser extent. This correlation can be seen as evidence for the theory of hierarchical structure formation in large-scale structure as well as possibly substructure, since it demonstrates the influence of major mergers on the structural properties of galaxies. The stellar halo of a galaxy is an area in which this trend may be more easily examined, since they have long orbital time periods, little dissipation effects and exist in smoother potentials in the outer regions of galaxies. Similarly shape properties for these stellar halos can be derived, using the moment of inertia tensor, and the influence of local environment on such properties investigated.
+Things that have to be decided for the project are what shape properties of the halo will be measured (e.g. calculation of the eigenvalues of the moment of inertia tensor) and also what these properties will be correlated with (the large-scale density, the classification of the local environment as a filament or void, etc.).
+\end{abstract}
+
+\IEEEpeerreviewmaketitle
+
+%%%%% INTRO %%%%%
+\section{Introduction}
+\IEEEPARstart{T}{hrough} analysis of N-body hydrodynamical simulations in CDM cosmologies, clear correlation has been observed between the properties of dark matter haloes and their local environment within the cosmic web. This environment is defined by large-scale structures such as clusters, voids, filaments and sheets, along which the dark matter halo may tend to be aligned parallel or perpendicular. This alignment can be measured with respect to physical properties such as shape (via triaxiality, oblateness, prolateness or sphericity) or angular momenta and spin. Second order correlation has also been observed between different halo mass functions, redshifts and metallicity. Some evidence has been found of a turning point mass beyond which correlation of properties to environment vanishes or is reversed \cite{hahn07b} \cite{dubois14}. 
+
+The shape of dark matter haloes can be determined by computing the moment of inertia tensor (whose eigenvectors are related to the lengths of the principal axes of inertia) \cite{hahn07a}. Hahn et.al \cite{hahn07a} found that haloes in clusters tend to be less spherical and more prolate, whereas halos in filaments tend to be more oblate, whilst finding overall that mass in low density regions show a clearer dependence on environment, and related these results to the temperature of the surrounding flow and infall of surrounding matter, which correlated with their environment classifications (as stable manifolds). 
+
+The fact that these halo properties correlate with the local environment suggests that the baryonic galaxies that form within them likely do so as well \cite{hahn07b}.  Bullock and Johnston \cite{bullock05} propose a way to investigate the properties of galaxies within their local environment by examining stellar halos, since halo stars allow for testing of galaxy formation theories by having long orbital time periods, little dissipation effects and smoother potentials. These offer an insight into the question of whether structure formation is truly hierarchical on small scales, such as within the stellar halo. If so, abundant substructure would be expected \cite{bullock05}. 
+
+The particular large-scale hydrodynamical cosmological simulation used is the Horizon-AGN \cite{dubois14}, which has been previously used to show that more massive galaxies tend to be oriented perpendicular to the filament, whilst less massive are parallel. This was proposed to be because of the misalignment of galactic angular momentum during mergers, which have occurred with higher frequency in high mass galaxies. 
+
+In this study, the shape of stellar haloes will be examined by making use of tidal torque theory. Linear tidal torque theory is essentially a way of calculating the angular momentum of a cosmological structure, by making use of the Zel'Dovich approximation, among others. It exists on the assumption that in the linear region of tidal torque, the Zel'dovich displacemnt can be written as separate spatial and temporal functions \cite{porciani02a}, where the spatial function is related to the tidal field tensor (deformation tensor) and the moment of inertia tensor, both of which can be calculated using available data. Re-arranging and approximating the potential as a second order Taylor expansion gives an expression for the angular momentum in terms of the deformation tensor, D (which can be calculated from the shear tidal tensor, T) and the moment of inertia tensor, I. 
+
+The Horizon-AGN hydrodynamical cosmological simulation has already been used to investigate a number of different trends in galaxy spins (for example, their dependence on mergers for reorientation \cite{welker14}, or cross-correlation with the surrounding dark matter tidal field \cite{codis15}).
+
+%%%%%% METHODS %%%%%
+\section{Methodology}
+\subsection{Physical properties of stellar halos}
+The physical shape characteristics of the stellar halo can be calculated in a number of different ways, all of which influence the resulting correlations made with the background filament. An important quantity for characterising shape is the moment of inertia tensor, which can be calculated iteratively for a set of particles as per Porciani\cite{porciani02a}. A more useful version is the reduced moment of inertia tensor\cite{tenneti15} which produces a direct correlation between eigenvalues and the principle axes of the assumed elliptic halo. The reduced inertia tensor was calculated for each halo cube according to the following equation:
+\begin{equation}
+\mathscr{I}_{ij}=m \sum_{n=1}^{N} q_{i}^{'(n)} q_{j}^{'(n)}
+\label{eq:moitensor}
+\end{equation}
+Where the $q_{i}^{'(n)}$ are the generalised coordinates of the system with respect to the halo centre of mass, calculated by taking the average over all grid points.
+\subsection{Pawsey Resources}
+
+%%%%% CONCLUSION %%%%%
+\section{Conclusion}
+The conclusion goes here.
+
+%%%%% APPENDIX %%%%%
+\appendices
+\section{Proof of the First Zonklar Equation}
+Appendix one text goes here.
+
+% you can choose not to have a title for an appendix
+% if you want by leaving the argument blank
+\section{}
+Appendix two text goes here.
+
+% use section* for acknowledgment
+\section*{Acknowledgment}
+The authors would like to thank...
+
+%%%%% REFERENCES %%%%%
+\begin{thebibliography}{1}
+
+\bibitem{lemson99}
+	G.~Lemson and G.~Kauffmann, 1999, \emph{Environmental influences on dark matter haloes and consequences for the galaxies within them},\hskip 1em MNRAS 302(1) p.111-117.	
+\bibitem{bailin05}
+	J.~Bailin and M.~Steinmetz, 2005, \emph{Internal and external alignment of the shapes and angular momenta of LCDM halos}, \hskip 1em Astrophysics J. 627 p.647-665.
+\bibitem{hahn07a}
+	Hahn et.al., 2007, \emph{Properties of dark matter haloes in clusters, filaments, sheets and voids}, \hskip 1em MNRAS 375(2) p.489-499.
+\bibitem{hahn07b}
+	Hahn et.al., 2007, \emph{The evolution of dark matter halo properties in clusters, filaments, sheets and voids}, \hskip 1em MNRAS 381(1) p.41-51.
+\bibitem{bullock05}
+	J.S.~Bullock and K.V.~Johnston, 2005, \emph{Tracing galaxy formation with stellar halos. I. Methods}, \hskip 1em Astrophysical Journal Letters 635(2) p.931-949.
+\bibitem{dubois14}
+	Dubois et.al., 2014, \emph{Dancing in the dark: galactic properties trace spin swings along the cosmic web}, \hskip 1em MNRAS 444(2) p.1453-1468.
+\bibitem{bowden13}
+	A.~Bowden, N.W.~Evans and V.~Belokurov, 2013, \emph{Triaxial cosmological haloes and the disc of satellites}, \hskip 1em MNRAS 435(2) p.928-933.
+\bibitem{rojas12}
+	A.~Rojas-Nin, O.~Valenzuela, B.~Pichardo and L.A.~Aguilar, 2012, \emph{Detecting triaxiality in the galactic dark matter halo through stellar kinematics}, \hskip 1em Astrophysical Journal Letters 757(2) p.28-33.
+\bibitem{tenneti15}
+	A.~Tenneti, R.~Mandelbaum, T.~Di Matteo, A.~Kiessling and N.~Khandai, 2015, \emph{Galaxy shapes and alignments in the MassiveBlack-II hydrodynamic and dark matter-only simulations}, \hskip 1em MNRAS 453(1) p.469-482.
+\bibitem{porciani02a}
+	Porciani et.al., 2002, \emph{Testing tidal-torque theory I. Spin amplitude and direction}, \hskip 1em MNRAS 332(2) p.469-482.
+\bibitem{porciani02b}
+	Porciani et.al., 2002, \emph{Testing tidal-torque theory II. Alignment of inertia and shear and the characteristics of protohaloes}, \hskip 1em MNRAS 332(2) p.339-351.
+\bibitem{sousbie11a}
+	T.~Sousbie, 2011, \emph{The persistent cosmic web and its filamentary structure - I. Theory and implementation}, \hskip 1em MNRAS 414(1) p.350-383.
+\bibitem{sousbie11b}
+	T.~Sousbie, 2011, \emph{The persistent cosmic web and its filamentary structure - II. Illustrations}, \hskip 1em MNRAS 414(1) p. 384-403.
+\bibitem{welker14}
+	Welker et.al., 2014, \emph{Mergers drive spin swings along the cosmic web}, \hskip 1em MNRAS 445(1) p.46-50.
+\bibitem{codis15}
+	Codis et.al., 2015, \emph{Intrinsic alignment of simulated galaxies in the cosmic web: implications for weak lensing surveys}, \hskip 1em MNRAS 448(4) p.3391-3404.
+\bibitem{chisari15}
+	Chisari et.al., 2015, \emph{Intrinsic alignments of galaxies in the Horizon-AGN cosmological hydrodynamical simulation}, \hskip 1em MNRAS 454(3) p.2736-2753.
+
+\end{thebibliography}
+
+
+\end{document}
+
+
