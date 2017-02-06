@@ -53,14 +53,21 @@ The physical shape characteristics of the stellar halo can be calculated in a nu
 	\tilde{I}_{ij}=\frac{\sum_n m_n \frac{x_{ni}x_{nj}}{r^2_n}}{\sum_n m_n}, \quad \quad \text{where} \quad r^2_n=\sum_i x^2_{ni}
 	\label{eq:moitensor}
 \end{equation}
-Where the generalised $x_i$ coordinates are given with respect to the centre of mass of the halo, which was calculated iteratively for circles of increasingly smaller radii. From this reduced inertia tensor, the eigenvectors represent the principal axes of the halo ellipsoid, and the eigenvalues correspond to the square of the principal axes' lengths.
+Where the generalised $x_i$ coordinates are given with respect to the centre of mass of the halo, which was calculated iteratively for circles of increasingly smaller radii. From this reduced inertia tensor, the eigenvectors represent the principal axes of the halo ellipsoid, and the eigenvalues correspond to the square of the principal axes' lengths. That is, for eigenvalues $\lambda_{a} \geq \lambda_{b} \geq \lambda_{c} $ the lengths of the major, intermediate and minor axes $l_{a},l_{b},l_{c}$ are then $\sqrt{\lambda_{a}}, \sqrt{\lambda_{b}}, \sqrt{\lambda_{c}}$. Note that this only holds because the reduced moment of inertia tensor was calculated.
 Since the reduced moment of inertia tensor produces a real symmetric matrix, the eigenvalues and eigenvectors were calculated analytically. 
 \subsection{Shape Properties of Stellar Halos}
 Using the values for the major, intermediate and minor axes of the elliptic halo, and their corresponding axis vectors, the following quantities were measured. 
-
-\IEEEPARstart{}{Sphericity}: The sphericity of the object is defined with respect to the major and minor axis (the intermediate is ignored). Plotting the sphericity of the stellar and dark matter halo as a function of radius gives an insight into the elongating effects of matter inflow along the filament, and to what extent the halos hold their shape under this force. 
-\IEEEPARstart{}{Ellipticity}:
-\IEEEPARstart{}{}
+\IEEEPARstart{}{Sphericity}: The sphericity of the object is defined with respect to the major and minor axis (the intermediate is ignored). Plotting the sphericity of the stellar and dark matter halo as a function of radius gives an insight into the elongating effects of matter inflow along the filament, and to what extent the halos hold their shape under this force. A spherical halo has sphericity $S=1$ whereas a needle would have $S=0$ \cite{hahn07a}.
+\IEEEPARstart{}{Triaxiality}: The triaxiality of the object takes into account all three axes. A prolate halo, one which is lengthened in the direction of its poles, has $T=1$ and an oblate (flattened at the poles) will have $T=0$ \cite{hahn07a}.
+\begin{equation}
+	S=\frac{l_c}{l_a}, \quad \quad T=\frac{l_a^2-l_b^2}{l_a^2-l_c^2}
+	\label{eq:sph&tri}
+\end{equation}
+\IEEEPARstart{}{Ellipticity}: Perhaps the most significant quantity in regards to this analysis however is the ellipticity, calculated using again only the major and minor axes of the halo. The significance of this comes from the fact the reduced moment of inertia tensor is calculated assuming an ellipsoid body. The ellipticity also gives a measure of how much the halo has been flattened along the filament, ignoring effects of the intermediate axis. The halo would be expected to have more prolate at higher radii as matter streams along the filament to the node.
+\begin{equation}
+	E=\sqrt{\frac{l_a^2-l_c^2}{l_a^2}}
+	\label{eq:ellipticity}
+\end{equation}
 \subsection{Using DisPerSe to calculate filamentary structure}
 The program DisPerSe \cite{sousbie11a}, standing for 'Discrete Persistent Structures Extractor' was developed by Sousbie et.al. to study the properties of filamentary structures in the cosmic web of galaxy distributions, by using the concept of persistence. The main idea is to find persistent topological structures within a data set, which can be of the form of an N-body particle set or a grid with values. These structures are identified as components of Morse-Smale complex of some input function defined over a manifold - this complex captures the relationship between the functions' gradient, its topology, and the topology of the manifold it is defined over. Further detail on this process is given in the Appendix.
 The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure \ref{fig:density_skel}. From this skeleton structure, the unit directional vector of the corresponding filament is calculated within differing radii from the centre of mass. Each radii contains all segments from the overall skeleton that have extremities within the given sphere, as in Figure \ref{figure:density_skel} a). From here the overall direction of the filament as defined from the centre of mass is calculated by averaging the separate segments.
