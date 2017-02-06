@@ -34,17 +34,15 @@
 
 %%%%% INTRO %%%%%
 \section{Introduction}
-\IEEEPARstart{T}{hrough} analysis of N-body hydrodynamical simulations in CDM cosmologies, clear correlation has been observed between the properties of dark matter haloes and their local environment within the cosmic web. This environment is defined by large-scale structures such as clusters, voids, filaments and sheets, along which the dark matter halo may tend to be aligned parallel or perpendicular. This alignment can be measured with respect to physical properties such as shape (via triaxiality, oblateness, prolateness or sphericity) or angular momenta and spin. Second order correlation has also been observed between different halo mass functions, redshifts and metallicity. Some evidence has been found of a turning point mass beyond which correlation of properties to environment vanishes or is reversed \cite{hahn07b} \cite{dubois14}. 
+\IEEEPARstart{T}{hrough} analysis of N-body hydrodynamical simulations in CDM cosmologies, clear correlations have been observed between the properties of dark matter haloes and their local environment within the cosmic web. This environment is defined by large-scale structures such as clusters, voids, filaments and sheets, along which the dark matter halo may tend to be aligned parallel or perpendicular. This alignment can be measured with respect to physical properties such as shape (via triaxiality, ellipticity and major/minor axes alignments) or angular momenta and spin. Second order correlation has also been observed between different halo mass functions, redshifts and metallicity. Some evidence has been found of a turning point mass beyond which correlation of properties to environment vanishes or is reversed \cite{hahn07b} \cite{dubois14}. 
 
-The shape of dark matter haloes can be determined by computing the moment of inertia tensor (whose eigenvectors are related to the lengths of the principal axes of inertia) \cite{hahn07a}. Hahn et.al \cite{hahn07a} found that haloes in clusters tend to be less spherical and more prolate, whereas halos in filaments tend to be more oblate, whilst finding overall that mass in low density regions show a clearer dependence on environment, and related these results to the temperature of the surrounding flow and infall of surrounding matter, which correlated with their environment classifications (as stable manifolds). 
+The shape of dark matter haloes can be determined by computing the moment of inertia tensor for the halo as a whole, assuming an ellipsoidal shape (these eigenvectors and values are related to the direction and length of the principal axes of inertia) \cite{hahn07a}. Hahn et.al \cite{hahn07a} found that haloes in clusters tend to be less spherical and more prolate, whereas halos in filaments tend to be more oblate, whilst finding overall that mass in low density regions show a clearer dependence on environment, and related these results to the temperature of the surrounding flow and infall of surrounding matter, which correlated with their environment classifications (as stable manifolds). 
 
-The fact that these halo properties correlate with the local environment suggests that the baryonic galaxies that form within them likely do so as well \cite{hahn07b}.  Bullock and Johnston \cite{bullock05} propose a way to investigate the properties of galaxies within their local environment by examining the stellar halos of these dark matter halos, since halo stars allow for testing of galaxy formation theories by having long orbital time periods, little dissipation effects and smoother potentials. These offer an insight into the question of whether structure formation is truly hierarchical on small scales, such as within the stellar halo. If so, abundant substructure would be expected \cite{bullock05}. 
+The fact that these halo properties correlate with the local environment suggests that the baryonic galaxies that form within them likely do so as well \cite{hahn07b}.  Bullock and Johnston \cite{bullock05} propose a way to investigate the properties of galaxies within their local environment by examining the stellar halos of these dark matter halos, since halo stars allow for testing of galaxy formation theories by having long orbital time periods, little dissipation effects and smoother potentials. These offer an insight into the question of whether structure formation is truly hierarchical on small scales, such as within the stellar halo. If so, abundant substructure would be expected \cite{bullock05}. The reason for using the stellar halo of the dark matter halo - which comprises of all baryonic matter associated with the dark matter halo - as opposed to the smaller, baryonic galaxies scattered within is that the stellar halo will hopefully be less effected by significant merger events along filaments that tend to significantly disrupt samples of galaxies.
 
-The particular large-scale hydrodynamical cosmological simulation used is the Horizon-AGN \cite{dubois14}, which has been previously used to show that more massive galaxies tend to be oriented perpendicular to the filament, whilst less massive are parallel. This was proposed to be because of the misalignment of galactic angular momentum during mergers, which have occurred with higher frequency in high mass galaxies. 
+The aim of this project was initially to look at the large-scale hydrodynamical cosmological simulation called the Horizon-AGN \cite{dubois14}, which has been previously used to show that more massive galaxies tend to be oriented perpendicular to the filament, whilst less massive are parallel. This was proposed to be because of the misalignment of galactic angular momentum during mergers, which have occurred with higher frequency in high mass galaxies. However due to time constraints and the lack of a reliable halo-finder algorithm for the huge data set, the analysis was carried out on a single cluster - the nIFTy cluster \cite{nifty}- with the intention of presenting a unified approach to later finding correlations in a large data set. 
 
-In this study, the shape of stellar haloes will be examined by making use of tidal torque theory. Linear tidal torque theory is essentially a way of calculating the angular momentum of a cosmological structure, by making use of the Zel'Dovich approximation, among others. It exists on the assumption that in the linear region of tidal torque, the Zel'dovich displacemnt can be written as separate spatial and temporal functions \cite{porciani02a}, where the spatial function is related to the tidal field tensor (deformation tensor) and the moment of inertia tensor, both of which can be calculated using available data. Re-arranging and approximating the potential as a second order Taylor expansion gives an expression for the angular momentum in terms of the deformation tensor, D (which can be calculated from the shear tidal tensor, T) and the moment of inertia tensor, I. 
-
-The Horizon-AGN hydrodynamical cosmological simulation has already been used to investigate a number of different trends in galaxy spins (for example, their dependence on mergers for reorientation \cite{welker14}, or cross-correlation with the surrounding dark matter tidal field \cite{codis15}).
+%In this study, the shape of stellar haloes will be examined by making use of tidal torque theory. Linear tidal torque theory is essentially a way of calculating the angular momentum of a cosmological structure, by making use of the Zel'Dovich approximation, among others. It exists on the assumption that in the linear region of tidal torque, the Zel'dovich displacemnt can be written as separate spatial and temporal functions \cite{porciani02a}, where the spatial function is related to the tidal field tensor (deformation tensor) and the moment of inertia tensor, both of which can be calculated using available data. Re-arranging and approximating the potential as a second order Taylor expansion gives an expression for the angular momentum in terms of the deformation tensor, D (which can be calculated from the shear tidal tensor, T) and the moment of inertia tensor, I. 
 
 %%%%%% METHODS %%%%%
 \section{Methodology}
@@ -59,24 +57,22 @@ Since the reduced moment of inertia tensor produces a real symmetric matrix, the
 \subsection{Shape Properties of Stellar Halos}
 Using the values for the major, intermediate and minor axes of the elliptic halo, and their corresponding axis vectors, the following quantities were measured. 
 
-\IEEEPARstart{}{Sphericity}: The sphericity of the object is defined with respect to the major and minor axis (the intermediate is ignore). 
+\IEEEPARstart{}{Sphericity}: The sphericity of the object is defined with respect to the major and minor axis (the intermediate is ignored). Plotting the sphericity of the stellar and dark matter halo as a function of radius gives an insight into the elongating effects of matter inflow along the filament, and to what extent the halos hold their shape under this force. It should also present 
 \IEEEPARstart{}{Ellipticity}:
 \IEEEPARstart{}{}
 \subsection{Using DisPerSe to calculate filamentary structure}
 The program DisPerSe \cite{sousbie11a}, standing for 'Discrete Persistent Structures Extractor' was developed by Sousbie et.al. to study the properties of filamentary structures in the cosmic web of galaxy distributions, by using the concept of persistence. The main idea is to find persistent topological structures within a data set, which can be of the form of an N-body particle set or a grid with values. These structures are identified as components of Morse-Smale complex of some input function defined over a manifold - this complex captures the relationship between the functions' gradient, its topology, and the topology of the manifold it is defined over. Further detail on this process is given in the Appendix.
 The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure \ref{fig:1}. 
 \subsection{Pawsey Resources}
-The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the scratch directory, and is currently being worked on by a PhD student looking to 
+The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the scratch directory, and is currently being worked on by a PhD student looking to develop a halo-finder algorithm, which would allow these results to be extended to the much larger dataset. The nIFTy cluster is a much smaller dataset, and so this analysis was capable of being conducted on a personal computer. Use was made of the NECTAR resource to run the DisPerSe program, as a higher amount of memory was required to compute the Morse-Smale complex. Although no jobs were run on Magnus throughout this project, the idea was to formulate an automated process that could be applied to a large data set of many halos, which would be easily applicable to the Horizon-AGN data set. 
 
 \begin{figure*}[!t]
 \centering
-\subfloat[Case I]{\includegraphics[width=2.5in]{DMwSkel.png}
-\label{fig_first_case}}
+	\subfloat{\includegraphics[width=2.5in]{DMwSkel.png}}
 \hfil
-\subfloat[Case II]{\includegraphics[width=2.5in]{GASwSkel.png}
-\label{fig_second_case}}
-\caption{Simulation results for the network.}
-\label{fig_sim}
+	\subfloat{\includegraphics[width=2.5in]{GASwSkel.png}}
+\caption{Gas density skeleton plotted on top of density plots for different matter}
+\label{density_skel}
 \end{figure*}
 
 %%%%% CONCLUSION %%%%%
@@ -107,6 +103,8 @@ The authors would like to thank...
 	J.S.~Bullock and K.V.~Johnston, 2005, \emph{Tracing galaxy formation with stellar halos. I. Methods}, \hskip 1em Astrophysical Journal Letters 635(2) p.931-949.
 \bibitem{dubois14}
 	Dubois et.al., 2014, \emph{Dancing in the dark: galactic properties trace spin swings along the cosmic web}, \hskip 1em MNRAS 444(2) p.1453-1468.
+\bibitem{nifty}
+	Frederico, S. et.al., 2016, \emph{nIFTy galaxy cluster simulations - II. Radiative models}, \hskip 1em MNRAS 459(3) p.2973-2991.
 \bibitem{bowden13}
 	A.~Bowden, N.W.~Evans and V.~Belokurov, 2013, \emph{Triaxial cosmological haloes and the disc of satellites}, \hskip 1em MNRAS 435(2) p.928-933.
 \bibitem{rojas12}
@@ -131,8 +129,9 @@ The authors would like to thank...
 \end{thebibliography}
 
 
-\begin{IEEEbiography}{Emily Hackett}
-	Bachelor of Philosophy (Honours) student at the University of Western Australia, majoring in Physics and undergoing an Honours year in Computational Physics in 2017. 
+\begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{ehackett}}]
+	{Emily Hackett}
+	Bachelor of Philosophy (Honours) student at the University of Western Australia, majoring in Physics and undergoing an Honours year in Computational Physics in 2017, and holds an Assured Pathway into Medicine which she intends to begin in 2018. Works as a volunteer for Bloom, a student organisation that provides workshops, co-working spae, mentoring and more to accelerate the growth of high-potential young entrepreneurs.
 \end{IEEEbiography}
 
 
