@@ -70,15 +70,41 @@ Using the values for the major, intermediate and minor axes of the elliptic halo
 \end{equation}
 \subsection{Using DisPerSe to calculate filamentary structure}
 The program DisPerSe \cite{sousbie11a}, standing for 'Discrete Persistent Structures Extractor' was developed by Sousbie et.al. to study the properties of filamentary structures in the cosmic web of galaxy distributions, by using the concept of persistence. The main idea is to find persistent topological structures within a data set, which can be of the form of an N-body particle set or a grid with values. These structures are identified as components of Morse-Smale complex of some input function defined over a manifold - this complex captures the relationship between the functions' gradient, its topology, and the topology of the manifold it is defined over. Further detail on this process is given in the Appendix.
-The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure \ref{fig:density_skel}. From this skeleton structure, the unit directional vector of the corresponding filament is calculated within differing radii from the centre of mass. Each radii contains all segments from the overall skeleton that have extremities within the given sphere, as in Figure \ref{figure:density_skel} a). From here the overall direction of the filament as defined from the centre of mass is calculated by averaging the separate segments.
+The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure \ref{fig:density_skel}. From this skeleton structure, the unit directional vector of the corresponding filament is calculated within differing radii from the centre of mass. Each radii contains all segments from the overall skeleton that have extremities within the given sphere, as in Figure \ref{fig:density_skel} a). From here the overall direction of the filament as defined from the centre of mass is calculated by averaging the separate segments, as in Figure \ref{fig:fil_calc}. 
 \subsection{Pawsey Resources}
 The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the scratch directory, and is currently being worked on by a PhD student looking to develop a halo-finder algorithm, which would allow these results to be extended to the much larger dataset. The nIFTy cluster is a much smaller dataset, and so this analysis was capable of being conducted on a personal computer. Use was made of the NECTAR resource to run the DisPerSe program, as a higher amount of memory was required to compute the Morse-Smale complex. Although no jobs were run on Magnus throughout this project, the idea was to formulate an automated process that could be applied to a large data set of many halos, which would be easily applicable to the Horizon-AGN data set. 
 
 \begin{figure*}[!t]
 \centering
-	\subfloat{\includegraphics[width=2.5in]{DMwSkel.png}}
-\hfil
-	\subfloat{\includegraphics[width=2.5in]{GASwSkel.png}}
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{circle_skel.png}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{skel_fil_arrow.png}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{fil_direction_arrows.png}
+	\end{subfigure}
+\label{fil_calc}
+\end{figure*}
+
+
+\begin{figure*}[!t]
+\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{DMwSkel.png}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GASwSkel.png}
+	\end{subfigure}
 \caption{Gas density skeleton plotted on top of density plots for different matter}
 \label{density_skel}
 \end{figure*}
