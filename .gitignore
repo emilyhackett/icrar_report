@@ -5,6 +5,7 @@
 *.aux
 *.blg
 report.pdf
+poster.pdf
 README
 example*
 *.swp
