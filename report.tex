@@ -50,17 +50,52 @@ The aim of this project was initially to look at the large-scale hydrodynamical 
 
 \begin{figure*}[!t]
 \centering
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{DMwSkel.png}
+		\includegraphics[width=\linewidth]{DMDenSkelxy.pdf}
 	\end{subfigure}
 	\quad
-	\begin{subfigure}[t]{0.45\textwidth}
+	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{GASwSkel.png}
+		\includegraphics[width=\linewidth]{DMDenSkelxz.pdf}
 	\end{subfigure}
-\caption{Gas density skeleton plotted on top of density plots for different matter}
-\label{density_skel}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{DMDenSkelyz.pdf}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GasDenSkelxy.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GasDenSkelxz.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GasDenSkelyz.pdf}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{TempDenSkelxy.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{TempDenSkelxz.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{TempDenSkelxz.pdf}
+	\end{subfigure}
+\label{fig:densities}
+\caption{Density plots with overlain skeleton for DM, Gas and Temperature in xy, xz and yz projections.}
 \end{figure*}
 
 
@@ -97,17 +132,17 @@ The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the sc
 \centering
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{xy_fils.png}
+		\includegraphics[width=\linewidth]{Filxy.pdf}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{xz_fils.png}
+		\includegraphics[width=\linewidth]{Filxz.pdf}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{yz_fils.png}
+		\includegraphics[width=\linewidth]{Filyz.pdf}
 	\end{subfigure}
 \label{fil_calc}
 	\caption{Filament vectors calculated for radii in range 1-5Mpc displayed on Gas density background (red arrows) projections a) xy, b) xz and c) yz, with the averaged filament direction over all radii displayed in black.}
@@ -117,6 +152,27 @@ The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the sc
 \subsection{Sphericity and Ellipticity against Radius}
 What defining features are seen in plots of sphericity and ellipticity against radius? What are the differences between stellar and DM? How does the temperature plot give any further information?
 (Introduce the idea of a confounding merger and show in pictures)
+
+\begin{figure*}[!t]
+\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Sphericity.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Triaxiality.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ellipticity.pdf}
+	\end{subfigure}
+\label{fig:shapes}
+	\caption{Shape properties of DM, stellar matter and temperature for the halo using a) sphericity, b) triaxiality and c) ellipticity.}
+\end{figure*}
+
 \subsection{Ellipsoid plots on Density background}
 What features are observed? How do these plots vary at different radii - do they show a higher level of alignment? More sphericity? 
 Misalignment angle between stellar and DM components
@@ -129,7 +185,7 @@ Which is generally more aligned with the filament, the stellar or DM component?
 \centering
 	\begin{subfigure}[t]{0.45\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{angle_dif_c0-001.png}
+		\includegraphics[width=\linewidth]{MisalignmentConst.pdf}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.45\textwidth}
@@ -139,7 +195,6 @@ Which is generally more aligned with the filament, the stellar or DM component?
 \label{fig:angleplots}
 	\caption{Plots of the angle between the filament direction and the major axis for the halo calculated using the reduced moment of inertia tensor at different radii from the centre of mass for a) radius-dependent filament directions and b) the averaged filament direction over all radius.}
 \end{figure*}
-
 
 \section{Conclusion}
 Very brief - one paragraph on what was interesting, what could be investigated, how the study could be moved up to a large data set (e.g. what was the most important statistic - the alignment of stellar halo with filament).
