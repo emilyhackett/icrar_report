@@ -8,6 +8,9 @@
 \usepackage{caption}
 \usepackage{subcaption}
 
+% Commenting out large sections for drafts
+\usepackage{verbatim}
+
 \begin{document}
 
 \title{Alignment of stellar halos with filaments
@@ -45,6 +48,22 @@ The fact that these halo properties correlate with the local environment suggest
 
 The aim of this project was initially to look at the large-scale hydrodynamical cosmological simulation called the Horizon-AGN \cite{dubois14}, which has been previously used to show that more massive galaxies tend to be oriented perpendicular to the filament, whilst less massive are parallel. This was proposed to be because of the misalignment of galactic angular momentum during mergers, which have occurred with higher frequency in high mass galaxies. However due to time constraints and the lack of a reliable halo-finder algorithm for the huge data set, the analysis was carried out on a single cluster - the nIFTy cluster \cite{nifty}- with the intention of presenting a unified approach to later finding correlations in a large data set. The cluster is plotted for dark matter (DM) and gas densities in Figure \ref{fig:densities} as well as for temperature, using 2D slices in the xy, xz and yz planes respectively. Further visualisation clarity of the cluster can be seen in Appendix 1, where the DM, stellar matter and temperature is shown in a 2D projection on the xy plane in thin slices. 
 
+\begin{figure*}[!t]
+\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{DMwSkel.png}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GASwSkel.png}
+	\end{subfigure}
+\caption{Gas density skeleton plotted on top of density plots for different matter}
+\label{density_skel}
+\end{figure*}
+
+
 %%%%%% METHODS %%%%%
 \section{Methodology}
 \subsection{Reduced Moment of Inertia Tensor}
@@ -70,7 +89,7 @@ Using the values for the major, intermediate and minor axes of the elliptic halo
 \end{equation}
 \subsection{Using DisPerSe to calculate filamentary structure}
 The program DisPerSe \cite{sousbie11a}, standing for 'Discrete Persistent Structures Extractor' was developed by Sousbie et.al. to study the properties of filamentary structures in the cosmic web of galaxy distributions, by using the concept of persistence. The main idea is to find persistent topological structures within a data set, which can be of the form of an N-body particle set or a grid with values. These structures are identified as components of Morse-Smale complex of some input function defined over a manifold - this complex captures the relationship between the functions' gradient, its topology, and the topology of the manifold it is defined over. Further detail on this process is given in the Appendix.
-The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure \ref{fig:density_skel}. From this skeleton structure, the unit directional vector of the corresponding filament is calculated within differing radii from the centre of mass. Each radii contains all segments from the overall skeleton that have extremities within the given sphere, as in Figure \ref{fig:density_skel} a). From here the overall direction of the filament as defined from the centre of mass is calculated by averaging the separate segments, as in Figure \ref{fig:fil_calc}. 
+The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure \ref{fig:density_skel}. From this skeleton structure, the unit directional vector of the corresponding filament is calculated within differing radii from the centre of mass. Each radii contains all segments from the overall skeleton that have extremities within the given sphere, as in Figure \ref{fig:density_skel} a). From here the overall direction of the filament as defined from the centre of mass is calculated by averaging the separate segments, as in Figure \ref{fig:fil_calc}. Due to the small number of segments included in any radius smaller than 1 Mpc away from the centre of mass, these filament direction was only calculated for a radius range of 1-5 Mpc. From this set of filament unit vectors, a single averaged filament direction was calculated (shown in black on Figure \ref{fig:fil_calc}) and used as a constant in further calculations.
 \subsection{Pawsey Resources}
 The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the scratch directory, and is currently being worked on by a PhD student looking to develop a halo-finder algorithm, which would allow these results to be extended to the much larger dataset. The nIFTy cluster is a much smaller dataset, and so this analysis was capable of being conducted on a personal computer. Use was made of the NECTAR resource to run the DisPerSe program, as a higher amount of memory was required to compute the Morse-Smale complex. Although no jobs were run on Magnus throughout this project, the idea was to formulate an automated process that could be applied to a large data set of many halos, which would be easily applicable to the Horizon-AGN data set. 
 
@@ -78,35 +97,20 @@ The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the sc
 \centering
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{circle_skel.png}
+		\includegraphics[width=\linewidth]{xy_fils.png}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{skel_fil_arrow.png}
+		\includegraphics[width=\linewidth]{xz_fils.png}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{fil_direction_arrows.png}
+		\includegraphics[width=\linewidth]{yz_fils.png}
 	\end{subfigure}
 \label{fil_calc}
-\end{figure*}
-
-
-\begin{figure*}[!t]
-\centering
-	\begin{subfigure}[t]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{DMwSkel.png}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{0.45\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{GASwSkel.png}
-	\end{subfigure}
-\caption{Gas density skeleton plotted on top of density plots for different matter}
-\label{density_skel}
+	\caption{Filament vectors calculated for radii in range 1-5Mpc displayed on Gas density background (red arrows) projections a) xy, b) xz and c) yz, with the averaged filament direction over all radii displayed in black.}
 \end{figure*}
 
 \section{Results}
@@ -121,6 +125,22 @@ How does the filament angle change when calculated at smaller radii around the c
 How does the alignment of the stellar/DM components with the filament change for different radii?
 Which is generally more aligned with the filament, the stellar or DM component?
 
+\begin{figure*}[!t]
+\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{angle_dif_c0-001.png}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{MisalignmentAve.pdf}
+	\end{subfigure}
+\label{fig:angleplots}
+	\caption{Plots of the angle between the filament direction and the major axis for the halo calculated using the reduced moment of inertia tensor at different radii from the centre of mass for a) radius-dependent filament directions and b) the averaged filament direction over all radius.}
+\end{figure*}
+
+
 \section{Conclusion}
 Very brief - one paragraph on what was interesting, what could be investigated, how the study could be moved up to a large data set (e.g. what was the most important statistic - the alignment of stellar halo with filament).
 What does this have to say about hierarchical structure formation? How much of a confounding effect can we expect major mergers to have on any large data set that this process was conducted on?
@@ -132,6 +152,7 @@ What does this have to say about hierarchical structure formation? How much of a
 Critical points are discrete sets of points where the Morse function's gradient is null, and integral lines are curves tangent to the gradient field at every point. Integral lines cover all space and their extremities are critical points, which induces a tesselation of space into regions called ascending manifolds. The set of these ascending manifolds is the Morse complex of the function. The Morse-Smale complex is an extension of this concept - the space is tesselated into regions called 'p-cells', each of which is the intersection of an ascending and descending manifold. 
 Topological components of a function can be represented by pairs of positive and negative critical points called persistence pairs - where a positive critical point corresponds to a created topological component, and a negative to a destroyed topological component. The absolute difference between the value of the critical points in a pair is the persistence, which represents the lifetime of the corresponding component. DisPerSe allows the specification of a persistence threshold which allows removal of topological components with persistence lower, hence filtering noise from the Morse-Smale complex. 
 
+\begin{comment}
 \section{Sliced density plots}
 \begin{figure*}[h!]
 	\centering
@@ -289,6 +310,7 @@ Topological components of a function can be represented by pairs of positive and
 	\caption{Sliced density plots for DM, stellar matter and temperature of the nIFTy cluster}
 	\label{sliced_plots}
 \end{figure*}
+\end{comment}
 
 % use section* for acknowledgment
 \section*{Acknowledgment}
@@ -334,12 +356,12 @@ The authors would like to thank...
 
 \end{thebibliography}
 
-
+\begin{comment}
 \begin{IEEEbiography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{ehackett}}]
 	{Emily Hackett}
 	Bachelor of Philosophy (Honours) student at the University of Western Australia, majoring in Physics and undergoing an Honours year in Computational Physics in 2017, and holds an Assured Pathway into Medicine which she intends to begin in 2018. Works as a volunteer for Bloom, a student organisation that acts to accelerate the growth of high-potential young entrepreneurs.
 \end{IEEEbiography}
-
+\end{comment}
 
 
 \end{document}
