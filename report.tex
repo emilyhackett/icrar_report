@@ -109,6 +109,27 @@ The physical shape characteristics of the stellar halo can be calculated in a nu
 \end{equation}
 Where the generalised $x_i$ coordinates are given with respect to the centre of mass of the halo, which was calculated iteratively for circles of increasingly smaller radii. From this reduced inertia tensor, the eigenvectors represent the principal axes of the halo ellipsoid, and the eigenvalues correspond to the square of the principal axes' lengths. That is, for eigenvalues $\lambda_{a} \geq \lambda_{b} \geq \lambda_{c} $ the lengths of the major, intermediate and minor axes $l_{a},l_{b},l_{c}$ are then $\sqrt{\lambda_{a}}, \sqrt{\lambda_{b}}, \sqrt{\lambda_{c}}$. Note that this only holds because the reduced moment of inertia tensor was calculated.
 Since the reduced moment of inertia tensor produces a real symmetric matrix, the eigenvalues and eigenvectors were calculated analytically. 
+
+\begin{figure*}[!t]
+\centering
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{DMDenEllipxy.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GasDenEllipxy.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{TempDenEllipxy.pdf}
+	\end{subfigure}
+\label{fig:ellipses}
+\caption{Ellipses in xy projection for reduced moment of inertia tensor eigenvectors for a) DM, b) stellar matter and c) temperature.}
+\end{figure*}
+
 \subsection{Shape Properties of Stellar Halos}
 Using the values for the major, intermediate and minor axes of the elliptic halo, and their corresponding axis vectors, the following quantities were measured. 
 \IEEEPARstart{}{Sphericity}: The sphericity of the object is defined with respect to the major and minor axis (the intermediate is ignored). Plotting the sphericity of the stellar and dark matter halo as a function of radius gives an insight into the elongating effects of matter inflow along the filament, and to what extent the halos hold their shape under this force. A spherical halo has sphericity $S=1$ whereas a needle would have $S=0$ \cite{hahn07a}.
