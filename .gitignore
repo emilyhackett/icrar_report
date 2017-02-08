@@ -4,7 +4,8 @@
 *.bbl
 *.aux
 *.blg
-*.pdf
+report.pdf
 README
 example*
 *.swp
+IEEEtran/*
