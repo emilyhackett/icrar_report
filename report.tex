@@ -44,6 +44,8 @@ The fact that these halo properties correlate with the local environment suggest
 
 The aim of this project was initially to look at the large-scale hydrodynamical cosmological simulation called the Horizon-AGN \cite{dubois14}, which has been previously used to show that more massive galaxies tend to be oriented perpendicular to the filament, whilst less massive are parallel. This was proposed to be because of the misalignment of galactic angular momentum during mergers, which have occurred with higher frequency in high mass galaxies. However due to time constraints and the lack of a reliable halo-finder algorithm for the huge data set, the analysis was carried out on a single cluster - the nIFTy cluster \cite{nifty}- with the intention of presenting a unified approach to later finding correlations in a large data set. The cluster is plotted for dark matter (DM) and gas densities in Figure \ref{fig:densities} as well as for temperature, using 2D slices in the xy, xz and yz planes respectively. Further visualisation clarity of the cluster can be seen in Appendix 1, where the DM, stellar matter and temperature is shown in a 2D projection on the xy plane in thin slices. 
 
+\textit{Add paragraph on what we can expect in terms of structure of a single halo - i.e. what is a viral shock? Why is it important?}
+
 \begin{figure*}[!t]
 \centering
 	\begin{subfigure}[t]{0.3\textwidth}
@@ -225,21 +227,23 @@ The plots of sphericity in Figure \ref{fig:shapes} show that overall the DM in t
 The plot of triaxiality in Figure \ref{fig:shapes} shows significant inconsistency at lower radii, however at higher radii as matter tends to stream along the filament, it is clear that the stellar matter is more elongated along the poles (assumed to be along the filament inflow) whereas the DM is slightly less elongated. The temperature retains a much more spherical profile.
 The plot of ellipticity in Figure \ref{fig:shapes} shows that the DM has a higher ellipticty than both stellar matter and the temperature profile. It can be seen that at a radius of about 1 Mpc the temperature briefly has a more elliptic profile than the stellar matter, which corresponds to where the sphericity peaked (which makes sense physically), and can be connected to the virial shock seen on density plots (reference figure that has gas density plotted with circle at centre of mass of radius 1 Mpc). Unlike the temperature profile, the stellar matter increases its ellipticity until it is almost on par with that of the DM at radius of 5 Mpc (at the edge of the simulation cube), likely due to the fact that 
 
+It is interesting to note the difference between the major axes of the DM and stellar matter, as plotted in Figure \ref{fig:DMgasAlign}. The spike in misalignment at a low radius is likely due to the high sphericity of both matters at very small radii from the centre of mass (as discussed above) which confounds the measurement of an accurate major axis. However there is a noticeable peak at a radius of 1 Mpc out from the centre of mass, the same point at which the temperature profile has higher ellipticity than the gas, i.e. the point at which the gas has an increase in sphericity, corresponding to the blow out of stellar material in a virial shock.
+
 \begin{figure*}[!t]
 \centering
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Sphericity.pdf}
+		\includegraphics[width=\linewidth]{Sphericity}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Triaxiality.pdf}
+		\includegraphics[width=\linewidth]{Triaxiality}
 	\end{subfigure}
 	\quad
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
-		\includegraphics[width=\linewidth]{Ellipticity.pdf}
+		\includegraphics[width=\linewidth]{Ellipticity}
 	\end{subfigure}
 \label{fig:shapes}
 	\caption{Shape properties of DM, stellar matter and temperature for the halo using a) sphericity, b) triaxiality and c) ellipticity.}
@@ -267,7 +271,7 @@ Which is generally more aligned with the filament, the stellar or DM component?}
 
 \begin{figure*}[!t]
 \centering
-\includegraphics[width=0.5\linewidth]{GasDMAlign.pdf}
+\includegraphics[width=0.5\linewidth]{GasDMAlign}
 \label{fig:DMgasAlign}
 \caption{Misalignment angle between DM and gas major axes}
 \end{figure*}
