@@ -13,15 +13,12 @@
 
 \begin{document}
 
-\title{Alignment of stellar halos with filaments
-\\ICRAR-Pawsey Summer Studentship Report}
+\title{Investigating the alignment of stellar halos with cosmic filaments using the nIFTy cluster}
 
-\author{Emily Hackett% <-this % stops a space
-\thanks{Dr Chris Power and Dr Charlotte Welker - ICRAR}
-\thanks{Chris Bording - Pawsey}}
-
+\author{Emily Hackett,~\IEEEmembership{Bachelor of Philosophy (Honours) Student, UWA}}% <-this % stops a space
+	
 % The paper headers
-\markboth{Alignment of stellar halos with cosmic filaments}%
+\markboth{ICRAR-Pawsey Summer Studentship 2016}%
 {Shell \MakeLowercase{\textit{et al.}}: ICRAR-Pawsey Summer Studentships}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
@@ -30,17 +27,16 @@
 \maketitle
 
 %%%%% ABSTRACT %%%%%
-% As a general rule, do not put math, special symbols or citations
-% in the abstract or keywords.
 \begin{abstract}
-	Previous research has shown that the physicsal structural properties of dark matter haloes can correlate with their local environment (such as filaments and voids), as those of baryonic galaxies may do also, although to a lesser extent. The significance of this correlation is that it can be seen as evidence for the theory of hierarchical structure formation in large-scale structure (as well as possibly substructure), since it demonstrates the influence of major mergers on the structural properties of galaxies. The question this project aims to address is whether this similar correlation between large-scale cosmic web structure and physical characteristics of the smaller embedded structure exists for stellar halos. The stellar halo of a galaxy is an area in which this trend may be more easily examined, since they have long orbital time periods, little dissipation effects and exist in smoother potentials in the outer regions of galaxies. Shape properties for these stellar halos can be derived similarly to those for dark matter halos, by calculating the reduced moment of inertia tensor whose eigenvalues and eigenvectors correspond to elliptic major,intermediate and minor axes. These values can then be compared to the filamentary structure around and through the halo, which is defined as its' local environment, and measured using the DisPerSe program. We find that (...) 
+	Previous research has shown that the physicsal structural properties of dark matter haloes can correlate with their local environment (such as filaments and voids), as similarly those of baryonic galaxies may also do, although to a lesser extent. The significance of characterising these sorts of correlation is their relationship to the theory of hierarchical structure formation in large-scale structure (as well as possibly substructure), as it can be used todemonstrate the influence of major mergers on the structural properties of halos. The question this project aims to address is whether a similar correlation between large-scale cosmic web structure and physical characteristics of the smaller embedded structure exists for stellar halos. The stellar halo of a galaxy is an area in which this trend may be more easily examined in coming years with the use of new radio astronomy techniques as well as weak gravitational lensing. Shape properties for these stellar halos can be derived similarly to those for dark matter halos, by calculating the reduced moment of inertia tensor whose eigenvalues and eigenvectors correspond to elliptic major,intermediate and minor axes (from which values for sphericity, triaxiality and ellipticity can be deduced). These values can then be compared to the filamentary structure around and through the halo, which is defined as its' local environment, and measured using the DisPerSe program. This paper aims to analyis the nIFTy cluster, a simulated dark matter halo in a snapshot of the cosmic web, and to examine the possibility of using these techniques on large simulation volumes with multiple halos, such as the Horizon-AGN simulation. 
+	(---results---)
 \end{abstract}
 
 \IEEEpeerreviewmaketitle
 
 %%%%% INTRO %%%%%
 \section{Introduction}
-\IEEEPARstart{T}{hrough} analysis of N-body hydrodynamical simulations in CDM cosmologies, clear correlations have been observed between the properties of dark matter haloes and their local environment within the cosmic web. This environment is defined by large-scale structures such as clusters, voids, filaments and sheets, along which the dark matter halo may tend to be aligned parallel or perpendicular. This alignment can be measured with respect to physical properties such as shape (via triaxiality, ellipticity and major/minor axes alignments) or angular momenta and spin. Second order correlation has also been observed between different halo mass functions, redshifts and metallicity. Some evidence has been found of a turning point mass beyond which correlation of properties to environment vanishes or is reversed \cite{hahn07b} \cite{dubois14}. 
+\IEEEPARstart{T}{hrough} analysis of N-body hydrodynamical simulations in cold dark matter (CDM) cosmologies, clear correlations have been observed between the properties of dark matter haloes and their local environment within the cosmic web. This environment is defined by large-scale structures such as clusters, voids, filaments and sheets, along which the dark matter halo may tend to be aligned parallel or perpendicular. This alignment can be measured with respect to physical properties such as shape (via triaxiality, ellipticity and major/minor axes alignments) or angular momenta and spin. Second order correlation has also been observed between different halo mass functions, redshifts and metallicity. Some evidence has been found of a turning point mass beyond which correlation of properties to environment vanishes or is reversed \cite{hahn07b} \cite{dubois14}. 
 
 The shape of dark matter haloes can be determined by computing the moment of inertia tensor for the halo as a whole, assuming an ellipsoidal shape (these eigenvectors and values are related to the direction and length of the principal axes of inertia) \cite{hahn07a}. Hahn et.al \cite{hahn07a} found that haloes in clusters tend to be less spherical and more prolate, whereas halos in filaments tend to be more oblate, whilst finding overall that mass in low density regions show a clearer dependence on environment, and related these results to the temperature of the surrounding flow and infall of surrounding matter, which correlated with their environment classifications (as stable manifolds). 
 
@@ -98,7 +94,6 @@ The aim of this project was initially to look at the large-scale hydrodynamical 
 \caption{Density plots with overlain skeleton for DM, Gas and Temperature in xy, xz and yz projections.}
 \end{figure*}
 
-
 %%%%%% METHODS %%%%%
 \section{Methodology}
 \subsection{Reduced Moment of Inertia Tensor}
@@ -125,6 +120,36 @@ Since the reduced moment of inertia tensor produces a real symmetric matrix, the
 	\begin{subfigure}[t]{0.3\textwidth}
 		\centering
 		\includegraphics[width=\linewidth]{TempDenEllipxy.pdf}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{DMDenEllipxz.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GasDenEllipxz.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{TempDenEllipxz.pdf}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{DMDenEllipyz.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GasDenEllipyz.pdf}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.3\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{TempDenEllipyz.pdf}
 	\end{subfigure}
 \label{fig:ellipses}
 \caption{Ellipses in xy projection for reduced moment of inertia tensor eigenvectors for a) DM, b) stellar matter and c) temperature.}
@@ -170,9 +195,19 @@ The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the sc
 \end{figure*}
 
 \section{Results}
+\subsection{Ellipsoid plots on Density background}
+\textit{What features are observed? How do these plots vary at different radii - do they show a higher level of alignment? More sphericity? 
+Misalignment angle between stellar and DM components}
+As expected, the plots of ellipsoid using the major axes of the 
+
+
 \subsection{Sphericity, Triaxiality and Ellipticity of different matter}
-What defining features are seen in plots of sphericity and ellipticity against radius? What are the differences between stellar and DM? How does the temperature plot give any further information?
-(Introduce the idea of a confounding merger and show in pictures)
+\textit{What defining features are seen in plots of sphericity and ellipticity against radius? What are the differences between stellar and DM? How does the temperature plot give any further information?
+(Introduce the idea of a confounding merger and show in pictures)}
+
+The plots of sphericity in Figure \ref{fig:shapes} show that overall the DM in the cube has a lower overall sphericity, with both stellar matter (gas) and temperature profiles showing a higher sphericity. The sphericity for the temperature profile peaks at a radius of approximately 0.8 Mpc out from the halo centre of mass, corresponding to a virial shock seen on the density plots. The stellar matter sphericity peaks slightly further out at a radius of about 1 Mpc, but still related to the temperature peak as would be expected. The higher radius for the Gas profile corresponds to the stellar material being blown out away from the centre of mass by the shock. 
+The plot of triaxiality in Figure \ref{fig:shapes} shows significant inconsistency at lower radii, however at higher radii as matter tends to stream along the filament, it is clear that the stellar matter is more elongated along the poles (assumed to be along the filament inflow) whereas the DM is slightly less elongated. The temperature retains a much more spherical profile.
+The plot of ellipticity in Figure \ref{fig:shapes} shows that the DM has a higher ellipticty than both stellar matter and the temperature profile. It can be seen that at a radius of about 1 Mpc the temperature briefly has a more elliptic profile than the stellar matter, which corresponds to where the sphericity peaked (which makes sense physically), and can be connected to the virial shock seen on density plots (reference figure that has gas density plotted with circle at centre of mass of radius 1 Mpc). Unlike the temperature profile, the stellar matter increases its ellipticity until it is almost on par with that of the DM at radius of 5 Mpc (at the edge of the simulation cube), likely due to the fact that 
 
 \begin{figure*}[!t]
 \centering
@@ -194,13 +229,10 @@ What defining features are seen in plots of sphericity and ellipticity against r
 	\caption{Shape properties of DM, stellar matter and temperature for the halo using a) sphericity, b) triaxiality and c) ellipticity.}
 \end{figure*}
 
-\subsection{Ellipsoid plots on Density background}
-What features are observed? How do these plots vary at different radii - do they show a higher level of alignment? More sphericity? 
-Misalignment angle between stellar and DM components
 \subsection{Skeleton plots and filament construction at small radii}
-How does the filament angle change when calculated at smaller radii around the centre of mass?
+\textit{How does the filament angle change when calculated at smaller radii around the centre of mass?
 How does the alignment of the stellar/DM components with the filament change for different radii?
-Which is generally more aligned with the filament, the stellar or DM component?
+Which is generally more aligned with the filament, the stellar or DM component?}
 
 \begin{figure*}[!t]
 \centering
@@ -225,8 +257,8 @@ Which is generally more aligned with the filament, the stellar or DM component?
 \end{figure*}
 
 \section{Conclusion}
-Very brief - one paragraph on what was interesting, what could be investigated, how the study could be moved up to a large data set (e.g. what was the most important statistic - the alignment of stellar halo with filament).
-What does this have to say about hierarchical structure formation? How much of a confounding effect can we expect major mergers to have on any large data set that this process was conducted on?
+\textit{Very brief - one paragraph on what was interesting, what could be investigated, how the study could be moved up to a large data set (e.g. what was the most important statistic - the alignment of stellar halo with filament).
+What does this have to say about hierarchical structure formation? How much of a confounding effect can we expect major mergers to have on any large data set that this process was conducted on?}
 
 
 %%%%% APPENDIX %%%%%
@@ -236,7 +268,7 @@ Critical points are discrete sets of points where the Morse function's gradient 
 Topological components of a function can be represented by pairs of positive and negative critical points called persistence pairs - where a positive critical point corresponds to a created topological component, and a negative to a destroyed topological component. The absolute difference between the value of the critical points in a pair is the persistence, which represents the lifetime of the corresponding component. DisPerSe allows the specification of a persistence threshold which allows removal of topological components with persistence lower, hence filtering noise from the Morse-Smale complex. 
 
 \section*{Acknowledgment}
-I would like to thank both my supervisors, Dr Chris Power and Dr Charlotte Welker, for their assistance on this project and for sharing their valuable time. Also the staff at ICRAR, who were very helpful and form such an inclusive community. I would also like to thank Chris Bording, for all his assistance with working with the Pawsey Resources as well as much else. 
+I would like to thank both my supervisors, Dr Chris Power and Dr Charlotte Welker, for their assistance on this project and for sharing their valuable time. Also the staff at ICRAR, who were extremely helpful and formed such an inclusive community. I would also like to thank Chris Bording, for all his assistance with working with the Pawsey Resources as well as much else. 
 
 %%%%% REFERENCES %%%%%
 \begin{thebibliography}{1}
