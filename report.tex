@@ -7,19 +7,20 @@
 % Packages for figures and subfigures:
 \usepackage{caption}
 \usepackage{subcaption}
+\usepackage{multicol}
 
 % Commenting out large sections for drafts
 \usepackage{verbatim}
 
 \begin{document}
 
-\title{Investigating the alignment of stellar halos with cosmic filaments using the nIFTy cluster}
+\title{Investigating the alignment of stellar halos with cosmic web filaments using the nIFTy cluster}
 
 \author{Emily Hackett,~\IEEEmembership{Bachelor of Philosophy (Honours) Student, UWA}}% <-this % stops a space
 	
 % The paper headers
-\markboth{ICRAR-Pawsey Summer Studentship 2016}%
-{Shell \MakeLowercase{\textit{et al.}}: ICRAR-Pawsey Summer Studentships}
+\markboth{Proceedings of the Pawsey Supercomputing Centre Summer Internships,~Vol.~1, No.~1, February~2017}%
+{Shell \MakeLowercase{\textit{et al.}}: Alignment of stellar halos with filaments}
 % The only time the second header will appear is for the odd numbered pages
 % after the title page when using the twoside option.
 
@@ -28,43 +29,47 @@
 
 %%%%% ABSTRACT %%%%%
 \begin{abstract}
-	Previous research has shown that the physicsal structural properties of dark matter haloes can correlate with their local environment (such as filaments and voids), as similarly those of baryonic galaxies may also do, although to a lesser extent. The significance of characterising these sorts of correlation is their relationship to the theory of hierarchical structure formation in large-scale structure (as well as possibly substructure), as it can be used todemonstrate the influence of major mergers on the structural properties of halos. The question this project aims to address is whether a similar correlation between large-scale cosmic web structure and physical characteristics of the smaller embedded structure exists for stellar halos. The stellar halo of a galaxy is an area in which this trend may be more easily examined in coming years with the use of new radio astronomy techniques as well as weak gravitational lensing. Shape properties for these stellar halos can be derived similarly to those for dark matter halos, by calculating the reduced moment of inertia tensor whose eigenvalues and eigenvectors correspond to elliptic major,intermediate and minor axes (from which values for sphericity, triaxiality and ellipticity can be deduced). These values can then be compared to the filamentary structure around and through the halo, which is defined as its' local environment, and measured using the DisPerSe program. This paper aims to analyis the nIFTy cluster, a simulated dark matter halo in a snapshot of the cosmic web, and to examine the possibility of using these techniques on large simulation volumes with multiple halos, such as the Horizon-AGN simulation. 
+	Previous research has shown that the structural properties of dark matter haloes can correlate with their local environment (such as filaments and voids), as similarly those of baryonic galaxies may also do, although to a lesser extent. The significance of characterising these sorts of correlation is their relationship to the theory of hierarchical structure formation in large-scale structure (as well as possibly substructure), as it can be used todemonstrate the influence of major mergers on the structural properties of halos. The question this project aims to address is whether a similar correlation between large-scale cosmic web structure and physical characteristics of the smaller embedded structure exists for stellar halos. The stellar halo of a galaxy is an area in which this trend may be more easily examined in coming years with the use of new radio astronomy techniques as well as weak gravitational lensing. Shape properties for these stellar halos can be derived similarly to those for dark matter halos, by calculating the reduced moment of inertia tensor whose eigenvalues and eigenvectors correspond to elliptic major,intermediate and minor axes (from which values for sphericity, triaxiality and ellipticity can be deduced). These values can then be compared to the filamentary structure around and through the halo, which is defined as its' local environment, and measured using the DisPerSe program. This paper aims to analyis the nIFTy cluster, a simulated dark matter halo in a snapshot of the cosmic web, and to examine the possibility of using these techniques on large simulation volumes with multiple halos, such as the Horizon-AGN simulation. 
 	(---results---)
 \end{abstract}
+
+\begin{IEEEkeywords}
+large-scale structure, stellar halo, galaxy formation, hierarchical structure formation
+\end{IEEEkeywords}
 
 \IEEEpeerreviewmaketitle
 
 %%%%% INTRO %%%%%
 \section{Introduction}
-\IEEEPARstart{T}{hrough} analysis of N-body hydrodynamical simulations in cold dark matter (CDM) cosmologies, clear correlations have been observed between the properties of dark matter haloes and their local environment within the cosmic web. This environment is defined by large-scale structures such as clusters, voids, filaments and sheets, along which the dark matter halo may tend to be aligned parallel or perpendicular. This alignment can be measured with respect to physical properties such as shape (via triaxiality, ellipticity and major/minor axes alignments) or angular momenta and spin. Second order correlation has also been observed between different halo mass functions, redshifts and metallicity. Some evidence has been found of a turning point mass beyond which correlation of properties to environment vanishes or is reversed \cite{hahn07b} \cite{dubois14}. 
+\IEEEPARstart{T}{hrough} analysis of N-body hydrodynamical simulations in cold dark matter (CDM) cosmologies, clear correlations have been observed between the properties of dark matter haloes and their local environment within the cosmic web. This environment is defined by large-scale structures such as clusters, voids, filaments and sheets, along which the dark matter halo may tend to be aligned parallel or perpendicular. This alignment can be measured with respect to physical properties such as shape (via triaxiality, ellipticity and major/minor axes alignments) or angular momenta and spin. For example, in a hierarchical formation model, it would be expected that halos tend towards prolateness rather than oblateness \cite{bett07} since they are formed by matter collapsing along filaments. 
 
-The shape of dark matter haloes can be determined by computing the moment of inertia tensor for the halo as a whole, assuming an ellipsoidal shape (these eigenvectors and values are related to the direction and length of the principal axes of inertia) \cite{hahn07a}. Hahn et.al \cite{hahn07a} found that haloes in clusters tend to be less spherical and more prolate, whereas halos in filaments tend to be more oblate, whilst finding overall that mass in low density regions show a clearer dependence on environment, and related these results to the temperature of the surrounding flow and infall of surrounding matter, which correlated with their environment classifications (as stable manifolds). 
+Another recent trend in cosmological simulations is analysis of the stellar halo, which is seen as . There is a need to develop proper, physical models of galaxy formation within DM halos to use in large-scale cosmological simulations to determine if distributions of galaxies are realistic \cite{davis85}. Large scale structure, such as dark matter filaments, clusters and voids, are a general result of nonlinear evolution models in cold dark matter cosmological simulations. The characteristic scale of clustering in a $\lambda$-CDM universe grows extremely fast, which is computationally difficult, despite the need for greater spatial resolution in simulations in order to investigate galaxy formation. Although simulations allow us to predict mass distributions in the universe, what we are capable of observing is galaxies - therefore it is important to know how galaxies are biased around large-scale structure, a correlation that is possibly influenced by the mechanics of galaxy formation. Modelling and determining the alignments of dark matter in N-body simulations is computationally easier than modelling complex baryonic physics and galaxy formation (even if there existed an agreed upon model). 
 
-\subsection*{HIERARCHICAL STRUCTURE FORMATION}
+%\subsection{Hierarchical Structure Formation}
 
-The fact that these halo properties correlate with the local environment suggests that the baryonic galaxies that form within them likely do so as well \cite{hahn07b}.  Bullock and Johnston \cite{bullock05} propose a way to investigate the properties of galaxies within their local environment by examining the stellar halos of these dark matter halos, since halo stars allow for testing of galaxy formation theories by having long orbital time periods, little dissipation effects and smoother potentials. These offer an insight into the question of whether structure formation is truly hierarchical on small scales, such as within the stellar halo. If so, abundant substructure would be expected \cite{bullock05}. The reason for using the stellar halo of the dark matter halo - which comprises of all baryonic matter associated with the dark matter halo - as opposed to the smaller, baryonic galaxies scattered within is that the stellar halo will hopefully be less effected by significant merger events along filaments that tend to significantly disrupt samples of galaxies.
+The fact that these halo properties correlate with the local environment suggests that the baryonic galaxies that form within them likely do so as well \cite{hahn07b}.  Bullock and Johnston \cite{bullock05} propose a way to investigate the properties of galaxies within their local environment by examining the stellar halos of these dark matter halos. These offer an insight into the question of whether structure formation is truly hierarchical on small scales, such as within the stellar halo. If so, abundant substructure would be expected \cite{bullock05}. The reason for using the stellar halo of the dark matter halo - which comprises of all baryonic matter associated with the dark matter halo - as opposed to the smaller, baryonic galaxies scattered within is that the stellar halo will hopefully be less effected by significant merger events along filaments that tend to significantly disrupt samples of galaxies.
 
-The aim of this project was initially to look at the large-scale hydrodynamical cosmological simulation called the Horizon-AGN \cite{dubois14}, which has been previously used to show that more massive galaxies tend to be oriented perpendicular to the filament, whilst less massive are parallel. This was proposed to be because of the misalignment of galactic angular momentum during mergers, which have occurred with higher frequency in high mass galaxies. However due to time constraints and the lack of a reliable halo-finder algorithm for the huge data set, the analysis was carried out on a single cluster - the nIFTy cluster \cite{nifty}- with the intention of presenting a unified approach to later finding correlations in a large data set. The cluster is plotted for dark matter (DM) and gas densities in Figure \ref{fig:densities} as well as for temperature, using 2D slices in the xy, xz and yz planes respectively. Further visualisation clarity of the cluster can be seen in Appendix 1, where the DM, stellar matter and temperature is shown in a 2D projection on the xy plane in thin slices. 
-
-\subsection{STELLAR HALOS}
+%\subsection{Stellar Halos}
 
 \emph{How does the work done on determining origins of stellar halo stars relate to the correlation of the stellar halo with large-scale structure and filaments?}
 
-There is a need to develop proper, physical models of galaxy formation within DM halos to use in large-scale cosmological simulations to determine if distributions of galaxies are realistic \cite{davis85}
-
 N-body simulations have been used to determine the relative importance of diffuse accretion verse mergers for halo growth. Observational studies of the metallicity and age of stars in the stellar halo allow similar distinctions to be drawn. In particular, Zolotov et.al. \cite{zolotov09} studied the stellar halo using numerical simulations to determine that it had dual origin: partly from tidal stripping of stars from disrupted satellites, and partly pushed out of the central galaxy in minor mergers. The paper defines the stellar halo as all stellar particles in the region 0.1 $r_{vir}$ to $r_{vir}$ that are not bound to substructures.
-Due to the low surface brightness of halos \cite{zolotov09}, current studies are mostly numerical simulation based rather than observational, although with the advent of the SKA project hopefully new opportunities to compare observations with simulations will become available.
 
+At any given redshift, dark matter is clustered on a characteristic mass scale, within which finer substructure is erased by collisions, mergers and tidal effects. \cite{white78} However, luminous material that has condensed in the cores of low-mass halos may in fact survive as the structure collapses and virialises. Hence the stellar halo has the capacity to become a history of sorts of the formation and evolution of its dark matter halo, which is in turn related to the large-scale structure evolving around it. Due to the low surface brightness of halos \cite{zolotov09}, current studies are mostly numerical simulation based rather than observational, although with the advent of the SKA project hopefully new opportunities to compare observations with simulations will become available.
 
-Large scale structure, such as dark amtter filaments, clusters and voids, are a general result of nonlinear evolution models in cold dark matter cosmological simulations. The characteristic scale of clustering in a $\lambda$-CDM universe grows extremely fast, which is computationally difficult, despite the need for greater spatial resolution in simulations in order to investigate galaxy formation.
-Although simulations allow us to predict mass distributions in the universe, what we are capable of observing is galaxies - therefore it is important to know how galaxies are biased around large-scale structure, a correlation that is possibly influenced by the mechanics of galaxy formation.
-
-At any given redshift, dark matter is clustered on a characteristic mass scale, within which finer substructure is erased by collisions, mergers and tidal effects. \cite{white78} However, luminous material that has condensed in the cores of low-mass halos may in fact survive as the structure collapses and virialises.
-
-
-\subsection*{VIRIAL SHOCKS AND GALAXY FORMATION}
+%\subsection{Virial Shocks}
 
 \textit{Add paragraph on what we can expect in terms of structure of a single halo - i.e. what is a viral shock? Why is it important?}
+
+Shock waves develop during the hierarchical evolution of cosmic structures, as the gravitational energy associated with the collapse of dark matter halos (corresponding to galaxy clusters and galaxies) is transformed into the internal energy of the intergalactic medium gaseous components \cite{planelles13}. Mergers and accretion processes then leave signatures on the energetic balance of the shock waves. 
+
+
+%%% OVERVIEW OF PAPER STRUCTURE %%%%
+% Can probably use this in the abstract (along with 2x sentences on background info)
+
+The aim of this project was initially to look at the large-scale hydrodynamical cosmological simulation called the Horizon-AGN \cite{dubois14}, which has been previously used to show that more massive galaxies tend to be oriented perpendicular to the filament, whilst less massive are parallel. This was proposed to be because of the misalignment of galactic angular momentum during mergers, which have occurred with higher frequency in high mass galaxies. However due to time constraints and the lack of a reliable halo-finder algorithm for the huge data set, the analysis was carried out on a single cluster - the nIFTy cluster \cite{nifty}- with the intention of presenting a unified approach to later finding correlations in a large data set. The cluster is plotted for dark matter (DM) and gas densities in Figure \ref{fig:densities} as well as for temperature, using 2D slices in the xy, xz and yz planes respectively. 
+
+In this study, the shape of the dark matter halo (and the corresponding stellar halo) is determined by computing the reduced moment of inertia tensor (see Section II A) for the halo as a whole, assuming an ellipsoidal shape (these eigenvectors and values are related to the direction and length of the principal axes of inertia) \cite{hahn07a}. From this data, shape properties such as sphericity, triaxiality and ellipticity (Section II B) were calculated for the different components as well as the temperature profile. The environment of the cluster is characterised by a filament vector that is calculated from the skeleton produced by the DisPerSe program (see Section II C). The angle between this filament vector and the major axis of the halo is then used to define the alignment of the halo with its large-scale environment, for different components of the halo at increasing radii. 
 
 \begin{figure*}[!t]
 \centering
@@ -190,11 +195,6 @@ Using the values for the major, intermediate and minor axes of the elliptic halo
 	E=\sqrt{\frac{l_a^2-l_c^2}{l_a^2}}
 	\label{eq:ellipticity}
 \end{equation}
-\subsection{Using DisPerSe to calculate filamentary structure}
-The program DisPerSe \cite{sousbie11a}, standing for 'Discrete Persistent Structures Extractor' was developed by Sousbie et.al. to study the properties of filamentary structures in the cosmic web of galaxy distributions, by using the concept of persistence. The main idea is to find persistent topological structures within a data set, which can be of the form of an N-body particle set or a grid with values. These structures are identified as components of Morse-Smale complex of some input function defined over a manifold - this complex captures the relationship between the functions' gradient, its topology, and the topology of the manifold it is defined over. Further detail on this process is given in the Appendix.
-The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure \ref{fig:densities}. From this skeleton structure, the unit directional vector of the corresponding filament is calculated within differing radii from the centre of mass. Each radii contains all segments from the overall skeleton that have extremities within the given sphere, as in Figure \ref{fig:fil_calc} a). From here the overall direction of the filament as defined from the centre of mass is calculated by averaging the separate segments, as in Figure \ref{fig:fil_calc}. Due to the small number of segments included in any radius smaller than 1 Mpc away from the centre of mass, these filament direction was only calculated for a radius range of 1-5 Mpc. From this set of filament unit vectors, a single averaged filament direction was calculated (shown in black on Figure \ref{fig:fil_calc}) and used as a constant in further calculations.
-\subsection{Pawsey Resources}
-The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the scratch directory, and is currently being worked on by a PhD student looking to develop a halo-finder algorithm, which would allow these results to be extended to the much larger dataset. The nIFTy cluster is a much smaller dataset, and so this analysis was capable of being conducted on a personal computer. Use was made of the NECTAR resource to run the DisPerSe program, as a higher amount of memory was required to compute the Morse-Smale complex. Although no jobs were run on Magnus throughout this project, the idea was to formulate an automated process that could be applied to a large data set of many halos, which would be easily applicable to the Horizon-AGN data set. 
 
 \begin{figure*}[!t]
 \centering
@@ -227,15 +227,49 @@ The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the sc
 		\centering
 		\includegraphics[width=\linewidth]{FilyzGas}
 	\end{subfigure}
-\label{fil_calc}
+\label{fig:fil_calc}
 	\caption{Filament vectors calculated for radii in range 1-5Mpc displayed on DM and Gas density background (red arrows) projections a) xy, b) xz and c) yz, with the averaged filament direction over all radii displayed in black.}
 \end{figure*}
+
+\subsection{Using DisPerSe to calculate filamentary structure}
+The program DisPerSe \cite{sousbie11a}, standing for 'Discrete Persistent Structures Extractor' was developed by Sousbie et.al. to study the properties of filamentary structures in the cosmic web of galaxy distributions, by using the concept of persistence. The main idea is to find persistent topological structures within a data set, which can be of the form of an N-body particle set or a grid with values. These structures are identified as components of Morse-Smale complex of some input function defined over a manifold - this complex captures the relationship between the functions' gradient, its topology, and the topology of the manifold it is defined over. Further detail on this process is given in the Appendix.
+The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure \ref{fig:densities}. From this skeleton structure, the unit directional vector of the corresponding filament is calculated within differing radii from the centre of mass. Each radii contains all segments from the overall skeleton that have extremities within the given sphere, as in Figure \ref{fig:fil_calc} a). From here the overall direction of the filament as defined from the centre of mass is calculated by averaging the separate segments, as in Figure \ref{fig:fil_calc}. Due to the small number of segments included in any radius smaller than 1 Mpc away from the centre of mass, these filament direction was only calculated for a radius range of 1-5 Mpc. From this set of filament unit vectors, a single averaged filament direction was calculated (shown in black on Figure \ref{fig:fil_calc}) and used as a constant in further calculations.
+\subsection{Pawsey Resources}
+The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the scratch directory, and is currently being worked on by a PhD student looking to develop a halo-finder algorithm, which would allow these results to be extended to the much larger dataset. The nIFTy cluster is a much smaller dataset, and so this analysis was capable of being conducted on a personal computer. Use was made of the NECTAR resource to run the DisPerSe program, as a higher amount of memory was required to compute the Morse-Smale complex. Although no jobs were run on Magnus throughout this project, the idea was to formulate an automated process that could be applied to a large data set of many halos, which would be easily applicable to the Horizon-AGN data set. 
+
+
+\begin{figure*}[!t]
+\centering
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{GasDMAlign}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Sphericity}
+	\end{subfigure}
+	\\
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Triaxiality}
+	\end{subfigure}
+	\quad
+	\begin{subfigure}[t]{0.45\textwidth}
+		\centering
+		\includegraphics[width=\linewidth]{Ellipticity}
+	\end{subfigure}
+\caption{Misalignment angle between DM and stellar matter in a) and shape properties of DM, stellar matter and temperature for the halo using b) sphericity, c) triaxiality and d) ellipticity.}
+\label{fig:shapes}
+\end{figure*}
+
 
 \section{Results}
 \subsection{Ellipsoid plots on density background}
 \textit{What features are observed? How do these plots vary at different radii - do they show a higher level of alignment? More sphericity? 
 Misalignment angle between stellar and DM components}
-As expected, the plots of ellipsoid using the major axes from the eigenvalues of the moment of inertia tensor show significant elongation along the filament direction in all 2D projections. The DM plots show more ellipsoid shapes than the stellar matter, and the temperature plots maintain a roughly spherical profile throughout. It can be seen that closer the centre of mass the ellipses become spherical in shape, corresponding to a higher density yet more consistent spread within the smaller radii. 
+As expected, the plots of ellipsoid using the major axes from the eigenvalues of the moment of inertia tensor show significant elongation along the filament direction in all 2D projections, as is expected in the hierarchical model whereby clusters form as matter infalls along the filament. The DM plots show more elliptical shapes than the stellar matter, and the temperature plots maintain a roughly spherical profile throughout. It can be seen that closer to the centre of mass the ellipses become spherical in shape, corresponding to a higher density yet more consistent spread within the smaller radii. 
+The high level of sphericity (and hence confusion in calculation of the major axis direction) corresponds also to high level of misalignment between the major axes of DM and stellar components as seen in Figure \ref{fig:shapes} a). 
 
 \subsection{Sphericity, Triaxiality and Ellipticity of different matter}
 \textit{What defining features are seen in plots of sphericity and ellipticity against radius? What are the differences between stellar and DM? How does the temperature plot give any further information?
@@ -246,26 +280,6 @@ The plot of triaxiality in Figure \ref{fig:shapes} shows significant inconsisten
 The plot of ellipticity in Figure \ref{fig:shapes} shows that the DM has a higher ellipticty than both stellar matter and the temperature profile. It can be seen that at a radius of about 1 Mpc the temperature briefly has a more elliptic profile than the stellar matter, which corresponds to where the sphericity peaked (which makes sense physically), and can be connected to the virial shock seen on density plots (reference figure that has gas density plotted with circle at centre of mass of radius 1 Mpc). Unlike the temperature profile, the stellar matter increases its ellipticity until it is almost on par with that of the DM at radius of 5 Mpc (at the edge of the simulation cube), likely due to the fact that 
 
 It is interesting to note the difference between the major axes of the DM and stellar matter, as plotted in Figure \ref{fig:DMgasAlign}. The spike in misalignment at a low radius is likely due to the high sphericity of both matters at very small radii from the centre of mass (as discussed above) which confounds the measurement of an accurate major axis. However there is a noticeable peak at a radius of 1 Mpc out from the centre of mass, the same point at which the temperature profile has higher ellipticity than the gas, i.e. the point at which the gas has an increase in sphericity, corresponding to the blow out of stellar material in a virial shock.
-
-\begin{figure*}[!t]
-\centering
-	\begin{subfigure}[t]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Sphericity}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Triaxiality}
-	\end{subfigure}
-	\quad
-	\begin{subfigure}[t]{0.3\textwidth}
-		\centering
-		\includegraphics[width=\linewidth]{Ellipticity}
-	\end{subfigure}
-\label{fig:shapes}
-	\caption{Shape properties of DM, stellar matter and temperature for the halo using a) sphericity, b) triaxiality and c) ellipticity.}
-\end{figure*}
 
 \subsection{Skeleton plots and filament construction at small radii}
 \textit{How does the filament angle change when calculated at smaller radii around the centre of mass?
@@ -285,13 +299,6 @@ Which is generally more aligned with the filament, the stellar or DM component?}
 	\end{subfigure}
 \label{fig:angleplots}
 	\caption{Plots of the angle between the filament direction and the major axis for the halo calculated using the reduced moment of inertia tensor at different radii from the centre of mass for a) radius-dependent filament directions and b) the averaged filament direction over all radius.}
-\end{figure*}
-
-\begin{figure*}[!t]
-\centering
-\includegraphics[width=0.5\linewidth]{GasDMAlign}
-\label{fig:DMgasAlign}
-\caption{Misalignment angle between DM and gas major axes}
 \end{figure*}
 
 %%%% TEMPERATURE PLOTS ON GAS SKELETON %%%%
@@ -390,6 +397,8 @@ I would like to thank both my supervisors, Dr Chris Power and Dr Charlotte Welke
 	Dubois et.al., 2014, \emph{Dancing in the dark: galactic properties trace spin swings along the cosmic web}, \hskip 1em MNRAS 444(2) p.1453-1468.
 \bibitem{nifty}
 	Frederico, S. et.al., 2016, \emph{nIFTy galaxy cluster simulations - II. Radiative models}, \hskip 1em MNRAS 459(3) p.2973-2991.
+\bibitem{planelles13}
+	S.~Planelles and V.~Quilis, 2013, \emph{Cosmological shock waves: clues to the formation history of haloes}, \hskip 1em MNRAS 428 p.1643-1655.
 \bibitem{bowden13}
 	A.~Bowden, N.W.~Evans and V.~Belokurov, 2013, \emph{Triaxial cosmological haloes and the disc of satellites}, \hskip 1em MNRAS 435(2) p.928-933.
 \bibitem{rojas12}
