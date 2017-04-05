@@ -15,8 +15,13 @@
 
 %% DOCUMENT INFO %%
 \title{Structural alignment of the nIFTy cluster with cosmic web filaments in the local environment}
-\author{Emily Hackett,~\IEEEmembership{Bachelor of Philosophy (Honours) Student, University of Western Australia}}
-\markboth{Proceedings of the Pawsey Supercomputing Centre Summer Internships,~Vol.~1, No.~1, February~2017}
+%\author{Emily Hackett,~\IEEEmembership{Bachelor of Philosophy (Honours) Student, University of Western Australia}
+\author{Emily~Hackett,~\IEEEmembership{Bachelor~of~Philosophy~(Hons),~Physics}~University~of~Western~Australia,~35 Stirling Hwy, Crawley WA 6009, email:~21489688@student.uwa.edu.au 
+	\thanks{Prof Chris Power, A/Prof with ICRAR,Ken and Julie Michael Building, 7 Fairway, Crawley WA 6009, email:chris.power@icrar.org}%
+	\thanks{Charlotte Welker, PhD with ICRAR, Ken and Julie Michael Building, 7 Fairway, Crawley WA 6009, email:charlotte.welker@icrar.org}%
+	\thanks{Chris Bording with Pawsey Supercomputing Centre}}
+
+\markboth{Proceedings of the Pawsey Supercomputing Centre Summer Internships, February~2017}%
 {Shell \MakeLowercase{\texit{et al.}}: Alignment of nIFTy cluster with cosmic filaments}
 
 % Make document title
@@ -192,7 +197,6 @@ The physical shape characteristics of the stellar halo can be calculated in a nu
 Where the generalised $x_i$ coordinates are given with respect to the centre of mass of the halo, which was calculated iteratively for circles of increasingly smaller radii. From this reduced inertia tensor, the eigenvectors represent the principal axes of the halo ellipsoid, and the eigenvalues correspond to the square of the principal axes' lengths. That is, for eigenvalues $\lambda_{a} \geq \lambda_{b} \geq \lambda_{c} $ the lengths of the major, intermediate and minor axes $l_{a},l_{b},l_{c}$ are then $\sqrt{\lambda_{a}}, \sqrt{\lambda_{b}}, \sqrt{\lambda_{c}}$. Note that this only holds because the reduced moment of inertia tensor was calculated.
 Since the reduced moment of inertia tensor produces a real symmetric matrix, the eigenvalues and eigenvectors were calculated analytically. 
 \subsection{Shape Properties of Stellar Halos}
-Using the values for the major, intermediate and minor axes of the elliptic halo, and their corresponding axis vectors, the following quantities were measured. 
 \IEEEPARstart{}{Sphericity}: The sphericity of the object is defined with respect to the major and minor axis (the intermediate is ignored). Plotting the sphericity of the stellar and dark matter halo as a function of radius gives an insight into the elongating effects of matter inflow along the filament, and to what extent the halos hold their shape under this force. A spherical halo has sphericity $S=1$ whereas a needle would have $S=0$ \cite{hahn07a}.
 \IEEEPARstart{}{Triaxiality}: The triaxiality of the object takes into account all three axes. A prolate halo, one which is lengthened in the direction of its poles, has $T=1$ and an oblate (flattened at the poles) will have $T=0$ \cite{hahn07a}.
 \begin{equation}
@@ -210,7 +214,7 @@ The program DisPerSe \cite{sousbie11a}, standing for 'Discrete Persistent Struct
 The program DisPerSe outputs the skeleton structure for the given data set, which are plotted against the density background in Figure 1. From this skeleton structure, the unit directional vector of the corresponding filament is calculated within differing radii from the centre of mass. Each radii contains all segments from the overall skeleton that have extremities within the given sphere. From here the overall direction of the filament as defined from the centre of mass is calculated by averaging the separate segments. Due to the small number of segments included in any radius smaller than 1 Mpc away from the centre of mass, these filament direction was only calculated for a radius range of 1-5 Mpc. From this set of filament unit vectors, a single averaged filament direction was calculated and used as a constant in further calculations.
 
 \subsection{Pawsey Resources}
-The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the scratch directory, and is currently being worked on by a PhD student looking to develop a halo-finder algorithm, which would allow these results to be extended to the much larger dataset. The nIFTy cluster is a much smaller dataset, and so this analysis was capable of being conducted on a personal computer. Use was made of the NECTAR research cloud, for computing the reduced moment of inertia tensor and also the centre of mass iteratively. Although no jobs were run on Magnus throughout this project, the skeletons used were originally run on Magnus. 
+The Horizon-AGN data set is located on the Pawsey Supercomputer Magnus in the scratch directory, and is currently being worked on by a PhD student looking to develop a halo-finder algorithm, which would allow these results to be extended to the much larger dataset. The nIFTy cluster is a much smaller dataset, and so this analysis was capable of being conducted on a personal computer. Use was made of the Nectar Research Cloud, for computing the reduced moment of inertia tensor and also the centre of mass iteratively. Although no jobs were run on Magnus throughout this project, the skeletons used were originally run on Magnus. 
 
 % Results:
 \section{Results}
@@ -240,7 +244,9 @@ By examining the density plots in Figure 1 and Figure 2, the lack of strong alig
 In terms of the analysis undergone here, calculating the reduced inertia tensor, which allows an analytical solution for eigenvalues and eigenvectors, seems to be an accurate and not too computationally expensive method of characterising the halo shape, offering a variety of different insights. More work could be done in characterising the filamentary environment - the calculation of the approximate filament direction could take into use peristence values of the segments, a field value outputted by the DisPerSe program but not used in this analysis. Also segments that were not wholly contained within the bounding radius, but crossing it as well, could be included to provide a larger set within small radii and hopefully more accurate results. 
 
 \section*{Acknowledgment}
-I would like to thank both my supervisors, Dr Chris Power and Dr Charlotte Welker, for their assistance on this project and for sharing their valuable time. I would also like to thank Chris Bording, for all his assistance with working with the Pawsey Resources as well as providing such a strong support network for all the studentships. 
+This work was supported by resources provided by The Pawsey Supercomputing Centre with funding from the Australian Government and the Government of Western Australia.
+
+This research was also supported by use of the Nectar Research Cloud, a collaborative Australian research platform supported by the National Collaborative Research Infrastructure Strategy (NCRIS).
 
 %% Appendix
 \appendices
